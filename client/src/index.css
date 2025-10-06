@@ -1,1 +1,194 @@
-@import "tailwindcss";
+
+/* Import Roboto Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #000;
+  color: white;
+  overflow-x: hidden;
+  font-weight: 400;
+}
+
+/* Network Font for Headers */
+@font-face {
+  font-family: 'Network';
+  src: url('/fonts/Network.woff2') format('woff2'),
+       url('/fonts/Network.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.network-font {
+  font-family: 'Network', 'Roboto', sans-serif;
+}
+
+/* Rest of your existing CSS remains the same */
+.three-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #000;
+  color: white;
+  overflow-x: hidden;
+}
+
+.App {
+  position: relative;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #004aad;
+  border-radius: 4px;
+}
+
+/* Three.js Canvas */
+.three-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Section Styles */
+section {
+  min-height: 100vh;
+  padding: 100px 20px;
+  position: relative;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  background: linear-gradient(45deg, #004aad, #00ff88);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(0, 74, 173, 0.5);
+}
+
+/* Gradient Backgrounds */
+.gradient-bg {
+  background: linear-gradient(135deg, 
+    #000000 0%,
+    #004aad 25%,
+    #000000 50%,
+    #004aad 75%,
+    #000000 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Neon Glow Effects */
+.neon-glow {
+  box-shadow: 
+    0 0 10px #004aad,
+    0 0 20px #004aad,
+    0 0 40px #004aad,
+    0 0 80px #004aad;
+}
+
+.text-glow {
+  text-shadow: 
+    0 0 10px #004aad,
+    0 0 20px #004aad,
+    0 0 40px #004aad;
+}
+
+/* Grid Layout */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Card Styles */
+.card {
+  background: rgba(0, 74, 173, 0.1);
+  border: 1px solid #004aad;
+  border-radius: 15px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 
+    0 10px 30px rgba(0, 74, 173, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Button Styles */
+.btn {
+  background: linear-gradient(45deg, #004aad, #00ff88);
+  border: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(0, 74, 173, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  section {
+    padding: 80px 15px;
+  }
+  
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
