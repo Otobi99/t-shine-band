@@ -1,26 +1,19 @@
-import React from 'react';
-import ThreeScene from './components/ThreeScene';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import About from './components/About';
-import Music from './components/Music';
-import Shows from './components/Shows';
-import Gallery from './components/Gallery';
-import Contact from './components/Contact';
+import { Route, Routes } from "react-router-dom"
+import React from 'react'
+import { ClientLayout } from "./components"
+import Home from "./pages/Home"
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <ThreeScene />
-      <Header />
-      <Hero />
-      <About />
-      <Music />
-      <Shows />
-      <Gallery />
-      <Contact />
-    </div>
-  );
+    <Routes>
+      <Route element={<ClientLayout/>}>
+        <Route index element={<Home/>}/>
+      </Route>
+      <Route>
+
+      </Route>
+    </Routes>
+  )
 }
 
-export default App;
+export default App
