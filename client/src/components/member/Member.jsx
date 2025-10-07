@@ -13,7 +13,7 @@ const LaneSelector = () => {
       name: "Thảo Nguyên",
       role: "Vocal",
       image:
-      "https://res.cloudinary.com/dttqah17o/image/upload/v1759810697/vocal-thao-nguyen-1_ahilwb.jpg",
+        "https://res.cloudinary.com/dttqah17o/image/upload/v1759810697/vocal-thao-nguyen-1_ahilwb.jpg",
     },
     {
       name: "Nghĩa Trần",
@@ -35,19 +35,19 @@ const LaneSelector = () => {
     },
     {
       name: "Thanh Hiếu",
-      role: "Vocal",
+      role: "Vocal Nam",
       image:
         "https://res.cloudinary.com/dttqah17o/image/upload/v1759810768/vocal-thanh-hieu-2_eaf6ug.jpg",
     },
   ];
 
-  const [selectedRole, setSelectedRole] = useState(laneData[0].role);
+  const [selectedName, setSelectedName] = useState(laneData[0].name);
 
-  const roles = [...new Set(laneData.map((member) => member.role))];
-  const selectedMember = laneData.find((member) => member.role === selectedRole);
+  const nameList = [...new Set(laneData.map((member) => member.name))];
+  const selectedMember = laneData.find((member) => member.name === selectedName);
 
   return (
-    <div className="container mx-auto px-4 md:px-0 h-[100vh]">
+    <div className="container mx-auto px-4 md:px-0 h-[100vh] bg-[#f0f4ff]">
       <div className="flex flex-col gap-4 md:flex-row justify-between items-center">
         <div className="flex flex-col flex-wrap justify-center items-center gap-3">
           <div className="w-50 h-50 md:w-100 md:h-100">
@@ -62,33 +62,33 @@ const LaneSelector = () => {
                   </span>
                 ))}
               </p>
-              <p className="mt-4 text-center text-lg text-gray-300">{selectedMember.role}</p>
+              <p className="mt-2 text-center text-lg text-gray-500">{selectedMember.role}</p>
             </div>
           )}
-          <div className="flex items-center justify-center space-x-2">
-            {roles.map((role) => (
+          <div className="flex flex-wrap justify-center gap-2 mt-4">
+            {nameList.map((name) => (
               <button
-                key={role}
-                onClick={() => setSelectedRole(role)}
+                key={name}
+                onClick={() => setSelectedName(name)}
                 className={`px-4 py-2 rounded font-semibold transition ${
-                  selectedRole === role
+                  selectedName === name
                     ? "bg-blue-600 text-white"
                     : "bg-gray-300 text-black hover:bg-gray-400"
                 }`}
               >
-                {role}
+                {name}
               </button>
             ))}
           </div>
         </div>
-        <div className="w-full h-full md:w-250 md:h-250 glow-wrapper logo">
+        <div className="w-full h-full md:w-250 md:h-250 logo">
           {selectedMember && (
             <div className="flex flex-col items-center">
-              <div className="rounded-full p-5 shadow hover:shadow-lg transition text-white glow-circle">
+              <div className="w-60 h-60 rounded-full p-5 shadow hover:shadow-lg transition text-white">
                 <img
                   src={selectedMember.image}
                   alt={selectedMember.name}
-                  className="w-full h-full object-cover rounded-full image-animated"
+                  className="w-full h-full object-cover rounded-full"
                 />
               </div>
             </div>
