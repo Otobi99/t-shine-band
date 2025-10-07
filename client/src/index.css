@@ -1,15 +1,86 @@
 @import "tailwindcss";
 
-/* animations.css */
-@keyframes fadeBg {
+/* Hiệu ứng fade-in chuẩn */
+@keyframes fadeIn {
   0% {
-    background-color: #1f2937; /* gray-800 */
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.02);
   }
   100% {
-    background-color: #2563eb; /* blue-600 */
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
-.bg-transition {
-  animation: fadeBg 0.5s ease-in-out forwards;
+/* Áp dụng cho logo hoặc hình ảnh */
+.logo {
+  animation: fadeIn 1.5s ease-out forwards;
 }
+
+@keyframes pulseFade {
+  0% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+}
+
+.image-animated {
+  animation: pulseFade 2.5s ease-in-out infinite;
+  transition: all 1s ease;
+}
+.glow-wrapper {
+  position: relative;
+  background: radial-gradient(circle at center, #004aad, #00c6ff);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Vòng sáng chạy quanh */
+.glow-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -25%;
+  left: -25%;
+  width: 150%;
+  height: 150%;
+  background: conic-gradient(from 0deg, transparent 0%, #00f0ff88 10%, transparent 20%);
+  animation: spinLight 4s linear infinite;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Hình ảnh bên trong */
+.glow-circle img {
+
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Animation quay vòng */
+@keyframes spinLight {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
