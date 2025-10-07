@@ -84,3 +84,21 @@
 }
 
 
+.glowing-text span {
+  color: #004aad;
+  text-shadow: 0 0 5px #004aad, 0 0 10px #004aad, 0 0 20px #004aad;
+  animation: glowLetter 1.5s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes glowLetter {
+  0%, 100% {
+    opacity: 0.3;
+    text-shadow: 0 0 2px #004aad;
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 5px #004aad, 0 0 10px #004aad, 0 0 20px #004aad;
+  }
+}
+
