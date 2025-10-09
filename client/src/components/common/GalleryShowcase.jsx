@@ -32,7 +32,7 @@ export default function GalleryShowcase() {
   return (
     <div className="container mx-auto px-4 md:px-0">
       {/* Tiêu đề */}
-      <h2 className="text-5xl text-blue-600 font-extrabold mb-12 uppercase tracking-wide">
+      <h2 className="text-5xl text-white font-extrabold mb-12 uppercase tracking-wide outline-text">
         Thư viện
       </h2>
 

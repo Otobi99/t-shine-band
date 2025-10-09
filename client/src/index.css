@@ -47,3 +47,42 @@
   }
 }
 
+.outline-text {
+  font-size: 72px;
+  font-weight: 800;
+  color: none; /* không màu bên trong */
+  -webkit-text-stroke: 2px red; /* viền trắng */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: colorReveal  1.2s ease-out forwards;
+  opacity: 0;
+}
+
+/* Hiệu ứng xuất hiện từ dưới lên */
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes colorReveal {
+  0% {
+    background-position: 0% 50%;
+    opacity: 0;
+    -webkit-text-stroke: 2px transparent;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 0.5;
+    -webkit-text-stroke: 2px red;
+  }
+  100% {
+    background-position: 0% 50%;
+    opacity: 1;
+    -webkit-text-stroke: 2px red;
+  }
+}
