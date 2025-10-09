@@ -7,7 +7,7 @@ const ClientLayout = () => {
   return (
     <div>
         <Header/>
-        <main>
+        <main className='mt-25'>
             <Outlet/>
         </main>
         <Footer/>
