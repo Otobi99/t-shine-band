@@ -1,17 +1,16 @@
-import { Route, Routes } from "react-router-dom"
-import React from 'react'
-import { ClientLayout } from "./components"
+import {Routes,Route} from "react-router-dom"
+import ClientLayout from "./layouts/ClientLayout"
 import Home from "./pages/Home"
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/effect-coverflow';
 
 const App = () => {
   return (
     <Routes>
-      <Route element={<ClientLayout/>}>
-        <Route index element={<Home/>}/>
-      </Route>
-      <Route>
-
-      </Route>
+        <Route element={<ClientLayout/>}>
+          <Route index element={<Home/>} />
+        </Route>
     </Routes>
   )
 }

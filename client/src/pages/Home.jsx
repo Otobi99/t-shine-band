@@ -1,10 +1,16 @@
-import Member from "../components/member/Member"
+import React from 'react'
+import Hero from '../components/Hero'
+import MemberHome from '../components/MemberHome'
+import GalleryShowcase from '../components/common/GalleryShowcase'
+
 
 const Home = () => {
   return (
-    <div className='bg-gray-200 text-black py-10'>
-       <Member/>
-    </div>
+    <>
+      <Hero/>
+      <MemberHome/>
+      <GalleryShowcase/>
+    </>
   )
 }
 

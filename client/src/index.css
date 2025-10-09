@@ -1,104 +1,17 @@
 @import "tailwindcss";
 
-/* Hiệu ứng fade-in chuẩn */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  50% {
-    opacity: 0.5;
-    transform: scale(1.02);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Áp dụng cho logo hoặc hình ảnh */
-.logo {
-  animation: fadeIn 1.5s ease-out forwards;
-}
-
-@keyframes pulseFade {
-  0% {
-    opacity: 0.8;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(0.9);
-  }
-  100% {
-    opacity: 0.8;
-    transform: scale(1);
-  }
-}
-
-.image-animated {
-  animation: pulseFade 2.5s ease-in-out infinite;
-  transition: all 1s ease;
-}
-.glow-wrapper {
+.navbar {
+  text-decoration: none;
   position: relative;
-  background: radial-gradient(circle at center, #004aad, #00c6ff);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  color: inherit;
 }
 
-/* Vòng sáng chạy quanh */
-.glow-wrapper::before {
+.navbar:hover::after {
   content: '';
   position: absolute;
-  top: -25%;
-  left: -25%;
-  width: 150%;
-  height: 150%;
-  background: conic-gradient(from 0deg, transparent 0%, #00f0ff88 10%, transparent 20%);
-  animation: spinLight 4s linear infinite;
-  border-radius: 50%;
-  z-index: 1;
+  left: 0;
+  bottom: -2px; /* khoảng cách dưới chữ */
+  width: 100%;
+  height: 2px;
+  background-color: #004aad;
 }
-
-/* Hình ảnh bên trong */
-.glow-circle img {
-
-  border-radius: 50%;
-  position: relative;
-  z-index: 2;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-}
-
-/* Animation quay vòng */
-@keyframes spinLight {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-
-.glowing-text span {
-  color: #004aad;
-  text-shadow: 0 0 5px #004aad, 0 0 10px #004aad, 0 0 20px #004aad;
-  animation: glowLetter 1.5s ease-in-out infinite;
-  display: inline-block;
-}
-
-@keyframes glowLetter {
-  0%, 100% {
-    opacity: 0.3;
-    text-shadow: 0 0 2px #004aad;
-  }
-  50% {
-    opacity: 1;
-    text-shadow: 0 0 5px #004aad, 0 0 10px #004aad, 0 0 20px #004aad;
-  }
-}
-
