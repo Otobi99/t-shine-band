@@ -37,18 +37,11 @@ const MemberHome = () => {
       </div>
       {/* Giới thiệu thành viên */}
       <div className="relative w-full bg-gradient-to-br text-blue-600 py-16 px-4 md:px-0">
-        <div className="text-center mb-12">
-          <h2 className="text-5xl font-extrabold tracking-tight mb-4 uppercase">
-            {selectedMember.name}
-          </h2>
-          <p className="text-xl text-gray-800 max-w-3xl mx-auto">
-            {selectedMember.title}
-          </p>
-        </div>
+        
         {/* Nội dung chính */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Ảnh chính */}
-          <div className="w-full h-[500px] rounded-xl overflow-hidden">
+          <div className="w-full h-[900px] rounded-xl overflow-hidden">
             <img
               src={mainImage}
               alt="Ảnh chính"
@@ -58,35 +51,40 @@ const MemberHome = () => {
 
           {/* Mô tả */}
           <div className="max-w-xl text-left">
-            <h3 className="text-3xl font-bold mb-4">Giới thiệu</h3>
+            <div className="text-center mb-3">
+              <h2 className="text-5xl font-extrabold tracking-tight mb-4 uppercase">
+                {selectedMember.name}
+              </h2>
+              <p className="text-xl text-gray-800 max-w-3xl mx-auto">
+                {selectedMember.title}
+              </p>
+            </div>
             <p className="text-gray-800 text-lg leading-relaxed mb-6">
               {selectedMember.desc}
             </p>
             <button className="bg-orange-500 hover:bg-orange-600 text-white  font-semibold px-6 py-3 rounded-full transition duration-300 shadow-lg">
               Xem Profile
             </button>
+             <div className="flex justify-start gap-4 mt-10 flex-wrap">
+              {selectedMember.images?.map((img, i) => (
+                <button
+                  key={i}
+                  onClick={() => setMainImage(img)}
+                  className={`w-24 h-24 rounded-lg overflow-hidden border-2 ${
+                    mainImage === img
+                      ? "border-orange-500"
+                      : "border-transparent hover:border-gray-400"
+                  } transition`}
+                >
+                  <img
+                    src={img}
+                    alt={`Ảnh ${i + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
-
-        {/* Danh sách ảnh nhỏ */}
-        <div className="flex justify-center gap-4 mt-10 flex-wrap">
-          {selectedMember.images?.map((img, i) => (
-            <button
-              key={i}
-              onClick={() => setMainImage(img)}
-              className={`w-24 h-24 rounded-lg overflow-hidden border-2 ${
-                mainImage === img
-                  ? "border-orange-500"
-                  : "border-transparent hover:border-gray-400"
-              } transition`}
-            >
-              <img
-                src={img}
-                alt={`Ảnh ${i + 1}`}
-                className="w-full h-full object-cover"
-              />
-            </button>
-          ))}
         </div>
       </div>
     </div>

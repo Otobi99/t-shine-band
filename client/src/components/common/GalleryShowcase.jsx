@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-const images = [
+const  allImages = [
  'https://res.cloudinary.com/dttqah17o/image/upload/v1759973502/hero-image-4_jjkm8x.jpg',
  'https://res.cloudinary.com/dttqah17o/image/upload/v1759973502/hero-image-4_jjkm8x.jpg',
  'https://res.cloudinary.com/dttqah17o/image/upload/v1759973502/hero-image-4_jjkm8x.jpg',
@@ -23,10 +23,14 @@ const images = [
 ];
 
 export default function GalleryShowcase() {
- const [selectedImage, setSelectedImage] = useState(null);
+    const [visibleCount, setVisibleCount] = useState(4);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const visibleImages = allImages.slice(0, visibleCount);
+  const hasMore = visibleCount < allImages.length;
 
   return (
-    <div className="w-full text-white py-16 px-6 md:px-20">
+    <div className="container mx-auto px-4 md:px-0">
       {/* Tiêu đề */}
       <h2 className="text-5xl text-blue-600 font-extrabold mb-12 uppercase tracking-wide">
         Thư viện
@@ -34,7 +38,7 @@ export default function GalleryShowcase() {
 
       {/* Gallery ảnh lớn */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        {images.map((img, i) => (
+        {visibleImages.map((img, i) => (
           <motion.div
             key={i}
             whileHover={{ scale: 1.02 }}
@@ -55,11 +59,23 @@ export default function GalleryShowcase() {
         ))}
       </div>
 
+      {/* Nút xem thêm */}
+      {hasMore && (
+        <div className="text-center mt-10">
+          <button
+            onClick={() => setVisibleCount((prev) => prev + 4)}
+            className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-full transition duration-300 shadow-lg"
+          >
+            Xem thêm
+          </button>
+        </div>
+      )}
+
       {/* Modal ảnh chi tiết */}
       <AnimatePresence>
         {selectedImage && (
           <motion.div
-            className="fixed inset-0  bg-opacity-80 flex items-center justify-center z-50"
+            className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
