@@ -36,7 +36,6 @@ const Footer = () => {
           <ul className="space-y-2">
             <li><Link to="/" className="hover:text-red-500 transition">Trang chủ</Link></li>
             <li><Link to="/members" className="hover:text-red-500 transition">Thành viên</Link></li>
-            <li><Link to="/about" className="hover:text-red-500 transition">Về chúng tôi</Link></li>
             <li><Link to="/gallery" className="hover:text-red-500 transition">Thư viện</Link></li>
             <li><Link to="/contact" className="hover:text-red-500 transition">Liên hệ</Link></li>
           </ul>

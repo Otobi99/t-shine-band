@@ -33,39 +33,37 @@ const videoList = [
 const BandVideoGallery = () => {
   return (
     <section className="bg-gray-50 py-16 px-6 md:px-12">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-800">🎥 Thư Viện Video Biểu Diễn</h2>
-          <p className="text-gray-500 mt-2">Tổng hợp các clip dọc và ngang thể hiện sự chuyên nghiệp của band</p>
-        </div>
+  <div className="max-w-7xl mx-auto">
+    <div className="text-center mb-12">
+      <h2 className="text-4xl font-bold text-gray-800">🎥 Thư Viện Video Biểu Diễn</h2>
+      <p className="text-gray-500 mt-2">Tổng hợp các clip dọc và ngang thể hiện sự chuyên nghiệp của band</p>
+    </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {videoList.map((video, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"
-            >
-              <div
-                className={`w-full ${
-                  video.orientation === "vertical" ? "h-[500px]" : "h-[300px]"
-                }`}
-              >
-                <iframe
-                  src={video.url}
-                  title={video.title}
-                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                ></iframe>
-              </div>
-              <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-800">{video.title}</h3>
-              </div>
-            </div>
-          ))}
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 auto-rows-auto gap-6">
+      {videoList.map((video, index) => (
+        <div
+          key={index}
+          className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+          style={{
+            height: video.orientation === "vertical" ? '500px' : '300px',
+          }}
+        >
+          <iframe
+            src={video.url}
+            title={video.title}
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full"
+          ></iframe>
+          <div className="p-4">
+            <h3 className="text-lg font-semibold text-gray-800">{video.title}</h3>
+          </div>
         </div>
-      </div>
-    </section>
+      ))}
+    </div>
+  </div>
+</section>
+
   );
 };
 
