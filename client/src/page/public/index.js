@@ -1,0 +1,6 @@
+export {default as Home} from "./Home"
+export {default as Contact} from "./Contact"
+export {default as JobDetail} from "./JobDetail"
+export {default as Library} from "./Library"
+export {default as MemberDetail} from "./MemberDetail"
+export {default as Services} from "./Services"

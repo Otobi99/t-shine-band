@@ -1,24 +1,20 @@
 import {Routes,Route} from "react-router-dom"
-import ClientLayout from "./layouts/ClientLayout"
-import Home from "./pages/Home"
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/effect-coverflow';
-import Member from "./pages/Member";
-import Gallery from "./pages/Gallery";
-import Contact from "./pages/Contact";
-import MemberDetail from "./pages/MemberDetail";
+import ClientLayout from "./Layout/ClientLayout"
+import { Contact, Home, JobDetail, Library, MemberDetail, Services } from "./page/public"
 
 const App = () => {
   return (
     <Routes>
-        <Route element={<ClientLayout/>}>
-          <Route index element={<Home/>} />
-          <Route path="members" element={<Member/>} />
-          <Route path="gallery" element={<Gallery/>} />
-          <Route path="contact" element={<Contact/>} />
-          <Route path="dt" element={<MemberDetail/>} />
-        </Route>
+      {/* Public Route */}
+      <Route element={<ClientLayout/>}>
+          <Route index element={<Home/>}/>
+          <Route path ="contact" element={<Contact/>}/>
+          <Route path ="service" element={<Services/>}/>
+          <Route path="library" element={<Library/>}/>
+          <Route path="member/{slug}" element={<MemberDetail/>}/>
+          <Route path="job/{slug}" element={<JobDetail/>}/>
+      </Route>
+      {/* Public Route */}
     </Routes>
   )
 }
