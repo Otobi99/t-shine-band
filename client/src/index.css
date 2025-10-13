@@ -79,4 +79,83 @@
   animation: iconPulse 12s ease-in-out infinite;
 }
 
+@font-face {
+  font-family: 'Networkand';
+  src: url('/assets/Networkand.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.title-font {
+  font-family: 'Networkand', sans-serif;
+}
 
+@keyframes fadeZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.animate-fadeZoom {
+  animation: fadeZoom 0.8s ease-out forwards;
+}
+
+@keyframes iconPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+}
+.animate-iconPulse {
+  animation: iconPulse 12s ease-in-out infinite;
+}
+
+.sponsor-marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.sponsor-track {
+  display: flex;
+  gap: 4rem;
+  animation: scrollSponsors 25s linear infinite;
+}
+
+.group:hover .sponsor-track {
+  animation-play-state: paused;
+}
+
+.sponsor-logo {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0.8;
+  transition: transform 0.3s ease;
+}
+.sponsor-logo:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+@keyframes scrollSponsors {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

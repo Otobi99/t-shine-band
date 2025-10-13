@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import PublicNavList from '../../constants/PublicNavList';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,7 +17,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 py-5 ${
         scrolled ? 'bg-white shadow-lg backdrop-blur-md' : 'bg-white/30 backdrop-blur-xl'
       }`}
     >
@@ -30,7 +31,11 @@ const Header = () => {
             <Link
               key={item.id}
               to={item.path}
-              className="hover:text-blue-600 transition duration-200"
+              className={`relative transition duration-200 ${
+                location.pathname === item.path
+                  ? 'text-blue-700 font-bold after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-500'
+                  : 'hover:text-blue-600'
+              }`}
             >
               {item.name}
             </Link>
@@ -60,7 +65,11 @@ const Header = () => {
             <Link
               key={item.id}
               to={item.path}
-              className="block text-gray-800 font-semibold hover:text-blue-600"
+              className={`block font-semibold transition ${
+                location.pathname === item.path
+                  ? 'text-blue-700 font-bold'
+                  : 'text-gray-800 hover:text-blue-600'
+              }`}
               onClick={() => setMenuOpen(false)}
             >
               {item.name}

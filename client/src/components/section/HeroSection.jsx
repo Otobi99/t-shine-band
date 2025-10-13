@@ -33,7 +33,7 @@ export default function HeroSection() {
   }, [subIndex, index, reverse]);
 
   return (
-    <section className=" h-screen text-center flex items-center justify-center px-4 
+    <section className=" h-[80vh] text-center flex items-center justify-center px-4 
     relative  ">
      {/* Blob ánh sáng sân khấu */}
     <div className="blob blob-blue top-1/4 left-1/3 w-72 h-72"></div>
