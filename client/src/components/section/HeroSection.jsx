@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const phrases = [
-  "Chúng tôi là Acoustic Soul",
+  "Chúng tôi là T Shine Band",
   "Âm nhạc là hơi thở",
   "Giai điệu chạm đến trái tim",
 ];
@@ -50,7 +50,7 @@ export default function HeroSection() {
           <span className="border-r-2 border-gray-900 animate-blink ml-1"></span>
         </h1>
         <p className="text-lg md:text-xl text-gray-700 max-w-xl mx-auto">
-          Band nhạc acoustic tại Tây Ninh – nơi âm nhạc kết nối cảm xúc.
+          Band nhạc acoustic tại TP.HCM – nơi âm nhạc kết nối cảm xúc.
         </p>
         <button className="mt-6 px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 shadow-lg">
           Khám phá ngay
