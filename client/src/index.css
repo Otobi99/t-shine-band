@@ -1,80 +1,37 @@
 @import "tailwindcss";
 
-/*== Scrollbar ==*/
-/* Scrollbar tổng thể */
+/* === Font === */
+@font-face {
+  font-family: 'Networkand';
+  src: url('/assets/Networkand.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.title-font {
+  font-family: 'Networkand', sans-serif;
+}
+
+/* === Scrollbar === */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
-
-/* Track (nền của scrollbar) */
 ::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(6px);
   border-radius: 10px;
 }
-
-/* Thumb (phần kéo) */
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #3b82f6, #60a5fa, #93c5fd);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
   transition: background 0.3s ease;
 }
-
-/* Hover effect */
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #2563eb, #3b82f6);
 }
 
-
-
-/*== Animations ==*/
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-.animate-blink {
-  animation: blink 1s step-end infinite;
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-.animate-gradientShift {
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
-}
-
-@keyframes blob1 {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(20px, -30px) scale(1.1); }
-  100% { transform: translate(0, 0) scale(1); }
-}
-.animate-blob1 {
-  animation: blob1 8s ease-in-out infinite;
-}
-
-@keyframes blob2 {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-20px, 20px) scale(1.05); }
-  100% { transform: translate(0, 0) scale(1); }
-}
-.animate-blob2 {
-  animation: blob2 10s ease-in-out infinite;
-}
-
-@keyframes blob3 {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(10px, -10px) scale(1.2); }
-  100% { transform: translate(0, 0) scale(1); }
-}
-.animate-blob3 {
-  animation: blob3 12s ease-in-out infinite;
-}
-
+/* === Neon Text === */
 .neon-text {
   color: #3b82f6;
   text-shadow:
@@ -84,31 +41,42 @@
     0 0 40px #60a5fa;
 }
 
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-.animate-gradientShift {
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
-}
-
-@keyframes blob1 {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(20px, -30px) scale(1.1); }
-  100% { transform: translate(0, 0) scale(1); }
-}
-.animate-blob1 {
-  animation: blob1 8s ease-in-out infinite;
+/* === Blob Animation === */
+/* === Blob Keyframe: ánh sáng sân khấu === */
+@keyframes blobMotion {
+  0%   { transform: translate(0, 0) scale(1); opacity: 0.3; }
+  20%  { transform: translate(30px, -20px) scale(1.1); opacity: 0.6; }
+  40%  { transform: translate(-25px, 25px) scale(0.95); opacity: 0.4; }
+  60%  { transform: translate(15px, -10px) scale(1.05); opacity: 0.7; }
+  80%  { transform: translate(-10px, 15px) scale(1.2); opacity: 0.5; }
+  100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
 }
 
-@keyframes blob2 {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-20px, 20px) scale(1.05); }
-  100% { transform: translate(0, 0) scale(1); }
+/* === Blob Classes === */
+.blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(40px);
+  animation: blobMotion 18s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
 }
-.animate-blob2 {
-  animation: blob2 10s ease-in-out infinite;
+
+/* === Variants === */
+.blob-blue    { background-color: #3b82f6; }
+.blob-purple  { background-color: #8b5cf6; }
+.blob-pink    { background-color: #ec4899; }
+.blob-cyan    { background-color: #06b6d4; }
+.blob-indigo  { background-color: #6366f1; }
+.blob-yellow  { background-color: #facc15; }
+
+@keyframes iconPulse {
+  0%   { transform: scale(1); opacity: 0.2; }
+  50%  { transform: scale(1.1); opacity: 0.4; }
+  100% { transform: scale(1); opacity: 0.2; }
 }
+.animate-iconPulse {
+  animation: iconPulse 12s ease-in-out infinite;
+}
+
+

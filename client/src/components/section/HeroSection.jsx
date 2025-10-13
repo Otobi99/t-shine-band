@@ -33,14 +33,15 @@ export default function HeroSection() {
   }, [subIndex, index, reverse]);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-white text-center flex items-center justify-center px-4">
-      {/* Neon gradient background */}
-      {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-400 animate-gradientShift opacity-30 z-0"></div> */}
+    <section className=" h-screen text-center flex items-center justify-center px-4 
+    relative  ">
+     {/* Blob ánh sáng sân khấu */}
+    <div className="blob blob-blue top-1/4 left-1/3 w-72 h-72"></div>
+    <div className="blob blob-purple bottom-1/3 right-1/4 w-60 h-60"></div>
+    <div className="blob blob-pink top-2/3 right-1/2 w-40 h-40"></div>
+    <div className="blob blob-cyan top-1/2 left-1/4 w-56 h-56"></div>
+    <div className="blob blob-yellow bottom-1/4 right-1/3 w-48 h-48"></div>
 
-      {/* Liquic blobs */}
-      <div className="absolute top-1/4 left-1/3 w-72 h-72 bg-blue-400 rounded-full blur-3xl opacity-40 animate-blob1"></div>
-      <div className="absolute bottom-1/3 right-1/4 w-60 h-60 bg-purple-400 rounded-full blur-2xl opacity-30 animate-blob2"></div>
-      <div className="absolute top-2/3 right-1/2 w-40 h-40 bg-pink-300 rounded-full blur-xl opacity-20 animate-blob3"></div>
 
       {/* Content */}
       <div className="relative z-10">
