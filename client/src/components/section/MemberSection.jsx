@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { members } from "../../constants/MemberSection";
 import { getInstrumentIcon } from "../../utils/getInstrumentIcon";
+import { Link } from "react-router-dom";
 
 export default function MemberSection() {
   const [activeId, setActiveId] = useState(1);
@@ -76,9 +77,9 @@ export default function MemberSection() {
           <h3 className="text-3xl font-bold mb-2">{activeMember.name}</h3>
           <p className="text-md text-blue-600 italic mb-2">{activeMember.role}</p>
           <p className="text-blue-700 mb-4 leading-relaxed">{activeMember.bio}</p>
-          <button className="px-5 py-2 bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white rounded-full shadow-md hover:shadow-xl transition flex items-center gap-2">
-            <span>🎧</span> Xem chi tiết
-          </button>
+          <Link to="member/{test-member}"  className="px-5 py-2 bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white rounded-full shadow-md hover:shadow-xl transition flex items-center gap-2">
+             Xem chi tiết
+          </Link >
         </div>
       </div>
     </section>

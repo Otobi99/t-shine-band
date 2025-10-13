@@ -11,8 +11,8 @@ const App = () => {
           <Route path ="contact" element={<Contact/>}/>
           <Route path ="service" element={<Services/>}/>
           <Route path="library" element={<Library/>}/>
-          <Route path="member/{slug}" element={<MemberDetail/>}/>
-          <Route path="job/{slug}" element={<JobDetail/>}/>
+          <Route path="member/:slug" element={<MemberDetail/>}/>
+          <Route path="job/:slug" element={<JobDetail/>}/>
       </Route>
       {/* Public Route */}
     </Routes>
