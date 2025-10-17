@@ -8,9 +8,30 @@
   font-weight: normal;
   font-style: normal;
 }
-body{
+/* Custom scrollbar cho toàn trang */
+html::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background: var(--logo-gradient);
+}
+
+html::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #1e3a8a, #2563eb, #3f51b5);
+  border-radius: 4px;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #2563eb transparent;
   font-family: "Roboto", sans-serif;
 }
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
 /* Gradient màu cho logo */
 :root {
   --logo-gradient: linear-gradient(90deg, #e0f7fa, #80d8ff, #b388ff);
@@ -192,3 +213,4 @@ body{
     border-image-source: linear-gradient(630deg, #3b82f6, #6366f1, #3f51b5);
   }
 }
+
