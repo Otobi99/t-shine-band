@@ -10,8 +10,8 @@ const PublicLayout = () => {
           {/* Lớp phủ toàn bộ section */}
           <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-[#1e3a8a]/50 to-black/70 z-0"></div>
                 <Outlet/>
-        <Footer/>
         </main>
+        <Footer/>
     </div>
   )
 }

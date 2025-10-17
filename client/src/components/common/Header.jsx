@@ -34,6 +34,14 @@ const Header = () => {
 
   return (
     <>
+      {/* Overlay khi menu mở */}
+      {menuOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40"
+          onClick={toggleMenu}
+        ></div>
+      )}
+
       <header
         className={`fixed w-full z-50 transition-transform duration-500 bg-white/10 backdrop-blur-md ${
           showHeader || menuOpen ? "translate-y-0" : "-translate-y-full"
@@ -65,18 +73,29 @@ const Header = () => {
               <LiquidButton text="Khám phá ngay" onClick={handleClick} />
             </div>
           </div>
-
-          {/* Menu điều hướng mobile */}
-          {menuOpen && (
-            <div className="md:hidden bg-blue-600 text-white px-4 pb-4 space-y-3 animate-fade-in">
-              <a href="/" className="block uppercase font-bold text-md hover:underline">Trang chủ</a>
-              <a href="/about" className="block uppercase font-bold text-md hover:underline">Giới thiệu</a>
-              <a href="/contact" className="block uppercase font-bold text-md hover:underline">Liên hệ</a>
-              <LiquidButton text="Khám phá ngay" onClick={handleClick} />
-            </div>
-          )}
         </div>
       </header>
+
+      {/* Menu mobile dạng slide từ bên phải */}
+      <div
+        className={`fixed top-0 right-0 h-full w-64 bg-blue-700 text-white z-50 transform transition-transform duration-500 ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="p-6 space-y-6">
+          <button
+            className="text-white text-2xl absolute top-4 right-4"
+            onClick={toggleMenu}
+            aria-label="Close menu"
+          >
+            ✕
+          </button>
+          <a href="/" className="block uppercase font-bold text-md hover:underline">Trang chủ</a>
+          <a href="/about" className="block uppercase font-bold text-md hover:underline">Giới thiệu</a>
+          <a href="/contact" className="block uppercase font-bold text-md hover:underline">Liên hệ</a>
+          <LiquidButton text="Khám phá ngay" onClick={handleClick} />
+        </div>
+      </div>
     </>
   );
 };

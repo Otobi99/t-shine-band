@@ -18,21 +18,36 @@ const HeroSection = () => {
 
       {/* Nội dung */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-6 md:px-12">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 uppercase tracking-wide drop-shadow-lg">
+        <h1
+          className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 uppercase tracking-wide drop-shadow-lg"
+          data-aos="fade-down"
+        >
           T Shine Band
         </h1>
-        <p className="max-w-2xl text-base sm:text-lg md:text-xl text-gray-200 mb-10 leading-relaxed">
+        <p
+          className="max-w-2xl text-base sm:text-lg md:text-xl text-gray-200 mb-10 leading-relaxed"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           Chúng tôi là nhóm nhạc trẻ đầy nhiệt huyết, mang đến những giai điệu bùng nổ và cảm xúc chân thật.
         </p>
 
-        <div className="flex flex-wrap justify-center items-center gap-4 w-full">
+        <div
+          className="flex flex-wrap justify-center items-center gap-4 w-full"
+          data-aos="zoom-in"
+          data-aos-delay="400"
+        >
           <LiquidButtonLink text="Thư viện" to="/library" bgColor="bg-indigo-600" />
           <LiquidButtonLink text="Booking" to="/booking" bgColor="bg-teal-600" />
         </div>
       </div>
 
       {/* Nút xem thêm */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10">
+      <div
+        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10"
+        data-aos="fade-up"
+        data-aos-delay="600"
+      >
         <ViewMoreButton />
       </div>
     </section>
