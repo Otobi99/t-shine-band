@@ -12,34 +12,34 @@ import Contact from "./pages/public/Contact"
 import About from "./pages/public/About"
 import Library from "./pages/public/Library"
 
+//   useEffect(() => {
+//   const handleContextMenu = (e) => e.preventDefault();
+//   const handleKeyDown = (e) => {
+//     if (
+//       (e.ctrlKey && e.key === "c") || // Ctrl+C
+//       (e.ctrlKey && e.key === "u") || // Ctrl+U
+//       (e.ctrlKey && e.key === "s") || // Ctrl+S
+//       (e.ctrlKey && e.key === "p") || // Ctrl+P
+//       (e.metaKey && e.key === "c")    // Cmd+C (Mac)
+//     ) {
+//       e.preventDefault();
+//     }
+//   };
 
+//   document.addEventListener("contextmenu", handleContextMenu);
+//   document.addEventListener("keydown", handleKeyDown);
+
+//   return () => {
+//     document.removeEventListener("contextmenu", handleContextMenu);
+//     document.removeEventListener("keydown", handleKeyDown);
+//   };
+// }, []);
 
 const App = () => {
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
   }, []);
-  useEffect(() => {
-  const handleContextMenu = (e) => e.preventDefault();
-  const handleKeyDown = (e) => {
-    if (
-      (e.ctrlKey && e.key === "c") || // Ctrl+C
-      (e.ctrlKey && e.key === "u") || // Ctrl+U
-      (e.ctrlKey && e.key === "s") || // Ctrl+S
-      (e.ctrlKey && e.key === "p") || // Ctrl+P
-      (e.metaKey && e.key === "c")    // Cmd+C (Mac)
-    ) {
-      e.preventDefault();
-    }
-  };
 
-  document.addEventListener("contextmenu", handleContextMenu);
-  document.addEventListener("keydown", handleKeyDown);
-
-  return () => {
-    document.removeEventListener("contextmenu", handleContextMenu);
-    document.removeEventListener("keydown", handleKeyDown);
-  };
-}, []);
   return (
     <Routes>
         <Route element={<PublicLayout/>}>
