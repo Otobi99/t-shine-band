@@ -1,86 +1,80 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import PublicNavList from '../../constants/PublicNavList';
+import LiquidButton from "./LiquidButton";
+import Logo from "./Logo";
+import { useState, useEffect } from "react";
 
 const Header = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation();
+  const [showHeader, setShowHeader] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const handleClick = () => {
+    console.log("Nút đã được bấm!");
+  };
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Cuộn xuống
+        setShowHeader(false);
+      } else {
+        // Cuộn lên
+        setShowHeader(true);
+      }
+
+      setLastScrollY(currentScrollY);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 py-5 ${
-        scrolled ? 'bg-white shadow-lg backdrop-blur-md' : 'bg-white/30 backdrop-blur-xl'
+      className={`fixed top-0 left-0 w-full z-50 transition-transform duration-500 ${
+        showHeader ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="container mx-auto px-4 md:px-6 flex justify-between items-center py-3">
-        {/* Logo */}
-        <div className="text-xl font-bold text-blue-700">T Shine Band</div>
+      <div className="relative border-b border-white">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <Logo />
 
-        {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center space-x-6 font-semibold text-gray-800">
-          {PublicNavList.map((item) => (
-            <Link
-              key={item.id}
-              to={item.path}
-              className={`relative transition duration-200 ${
-                location.pathname === item.path
-                  ? 'text-blue-700 font-bold after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-500'
-                  : 'hover:text-blue-600'
-              }`}
-            >
-              {item.name}
-            </Link>
-          ))}
-        </nav>
+          {/* Nút menu cho mobile */}
+          <button
+            className="md:hidden text-black text-2xl focus:outline-none"
+            onClick={toggleMenu}
+          >
+            ☰
+          </button>
 
-        {/* Language Switcher */}
-        <div className="hidden md:flex items-center space-x-2 text-sm font-bold border border-white/30 bg-white/40 backdrop-blur-md rounded-full px-3 py-1 shadow-sm">
-          <button className="hover:text-blue-600">EN</button>
-          <span className="text-gray-400">|</span>
-          <button className="hover:text-blue-600">VI</button>
-        </div>
+          {/* Menu điều hướng desktop */}
+          <nav className="hidden md:flex space-x-6">
+            <a href="/" className="text-white uppercase font-bold text-md transition">Trang chủ</a>
+            <a href="/about" className="text-white uppercase font-bold text-md transition">Giới thiệu</a>
+            <a href="/contact" className="text-white uppercase font-bold text-md transition">Liên hệ</a>
+          </nav>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden text-gray-700 focus:outline-none"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          ☰
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="md:hidden bg-white/80 backdrop-blur-md shadow-md px-4 py-3 space-y-2">
-          {PublicNavList.map((item) => (
-            <Link
-              key={item.id}
-              to={item.path}
-              className={`block font-semibold transition ${
-                location.pathname === item.path
-                  ? 'text-blue-700 font-bold'
-                  : 'text-gray-800 hover:text-blue-600'
-              }`}
-              onClick={() => setMenuOpen(false)}
-            >
-              {item.name}
-            </Link>
-          ))}
-          <div className="flex space-x-3 pt-2 text-sm font-bold">
-            <button className="hover:text-blue-600">EN</button>
-            <button className="hover:text-blue-600">VI</button>
+          <div className="hidden md:block">
+            <LiquidButton text="Khám phá ngay" onClick={handleClick} />
           </div>
         </div>
-      )}
+
+        {/* Menu điều hướng mobile */}
+        {menuOpen && (
+          <div className="md:hidden bg-white text-black px-4 pb-4 space-y-3">
+            <a href="/" className="block text-white uppercase font-bold text-md transition">Trang chủ</a>
+            <a href="/about" className="block text-white uppercase font-bold text-md transition">Giới thiệu</a>
+            <a href="/contact" className="block text-white uppercase font-bold text-md transition">Liên hệ</a>
+            <LiquidButton text="Khám phá ngay" onClick={handleClick} />
+          </div>
+        )}
+      </div>
     </header>
   );
 };

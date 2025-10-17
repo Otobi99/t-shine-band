@@ -1,0 +1,1 @@
+bg-gradient-to-r from-[#001f3f] via-[#004aad] to-[#3f51b5]

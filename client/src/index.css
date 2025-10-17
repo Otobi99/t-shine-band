@@ -1,161 +1,86 @@
 @import "tailwindcss";
 
-/* === Font === */
+/* Import font từ local */
 @font-face {
-  font-family: 'Networkand';
-  src: url('/assets/Networkand.ttf') format('truetype');
+  font-family: 'Net Work And';
+  src: url('/fonts/NetWorkAnd.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
-.title-font {
-  font-family: 'Networkand', sans-serif;
+
+/* Gradient màu cho logo */
+:root {
+  --logo-gradient: linear-gradient(90deg, #e0f7fa, #80d8ff, #b388ff);
+  --title-gradient: linear-gradient(
+    90deg,
+    #80aaff,     /* phiên bản sáng hơn của #004aad */
+    #a89cf0,     /* tím nhạt hơn #6a5acd */
+    #d3baff,     /* tím sáng hơn #b388ff */
+    #ffffff      /* thêm ánh trắng để tăng độ sáng */
+  );
 }
 
-/* === Scrollbar === */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(6px);
-  border-radius: 10px;
-}
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #3b82f6, #60a5fa, #93c5fd);
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
-  transition: background 0.3s ease;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #2563eb, #3b82f6);
+/* Class logo-text */
+.logo-text {
+  font-family: 'Net Work And', sans-serif;
+  background: var(--logo-gradient);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradientMove 5s ease infinite;
 }
 
-/* === Neon Text === */
-.neon-text {
-  color: #3b82f6;
-  text-shadow:
-    0 0 5px #3b82f6,
-    0 0 10px #3b82f6,
-    0 0 20px #3b82f6,
-    0 0 40px #60a5fa;
+.title {
+  background: var(--title-gradient);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradientMove 5s ease infinite;
 }
 
-/* === Blob Animation === */
-/* === Blob Keyframe: ánh sáng sân khấu === */
-@keyframes blobMotion {
-  0%   { transform: translate(0, 0) scale(1); opacity: 0.3; }
-  20%  { transform: translate(30px, -20px) scale(1.1); opacity: 0.6; }
-  40%  { transform: translate(-25px, 25px) scale(0.95); opacity: 0.4; }
-  60%  { transform: translate(15px, -10px) scale(1.05); opacity: 0.7; }
-  80%  { transform: translate(-10px, 15px) scale(1.2); opacity: 0.5; }
-  100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
-}
-
-/* === Blob Classes === */
-.blob {
-  position: absolute;
-  border-radius: 9999px;
-  filter: blur(40px);
-  animation: blobMotion 18s ease-in-out infinite;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* === Variants === */
-.blob-blue    { background-color: #3b82f6; }
-.blob-purple  { background-color: #8b5cf6; }
-.blob-pink    { background-color: #ec4899; }
-.blob-cyan    { background-color: #06b6d4; }
-.blob-indigo  { background-color: #6366f1; }
-.blob-yellow  { background-color: #facc15; }
-
-@keyframes iconPulse {
-  0%   { transform: scale(1); opacity: 0.2; }
-  50%  { transform: scale(1.1); opacity: 0.4; }
-  100% { transform: scale(1); opacity: 0.2; }
-}
-.animate-iconPulse {
-  animation: iconPulse 12s ease-in-out infinite;
-}
-
-@font-face {
-  font-family: 'Networkand';
-  src: url('/assets/Networkand.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-.title-font {
-  font-family: 'Networkand', sans-serif;
-}
-
-@keyframes fadeZoom {
+/* Keyframes chuyển màu */
+@keyframes gradientMove {
   0% {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-.animate-fadeZoom {
-  animation: fadeZoom 0.8s ease-out forwards;
-}
-
-@keyframes iconPulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.2;
+    background-position: 0% 50%;
   }
   50% {
-    transform: scale(1.1);
-    opacity: 0.4;
+    background-position: 100% 50%;
   }
   100% {
-    transform: scale(1);
-    opacity: 0.2;
+    background-position: 0% 50%;
   }
 }
-.animate-iconPulse {
-  animation: iconPulse 12s ease-in-out infinite;
-}
 
-.sponsor-marquee {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.sponsor-track {
-  display: flex;
-  gap: 4rem;
-  animation: scrollSponsors 25s linear infinite;
-}
-
-.group:hover .sponsor-track {
-  animation-play-state: paused;
-}
-
-.sponsor-logo {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  opacity: 0.8;
-  transition: transform 0.3s ease;
-}
-.sponsor-logo:hover {
-  transform: scale(1.1);
-  opacity: 1;
-}
-
-@keyframes scrollSponsors {
-  0% {
-    transform: translateX(0%);
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0);
   }
-  100% {
-    transform: translateX(-50%);
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: floatUpDown 2s ease-in-out infinite;
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  .paused {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
 }

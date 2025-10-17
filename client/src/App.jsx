@@ -1,20 +1,22 @@
-import {Routes,Route} from "react-router-dom"
-import ClientLayout from "./Layout/ClientLayout"
-import { Contact, Home, JobDetail, Library, MemberDetail, Services } from "./page/public"
+import {Routes, Route} from "react-router-dom"
+import PublicLayout from "./layouts/PublicLayout"
+import AdminLayout from "./layouts/AdminLayout"
+import Home from "./pages/public/Home"
+import Dashboard from "./pages/admin/Dashboard"
+import Login from "./pages/Login"
+import NotFoundPage from './pages/NotFoundPage';
 
 const App = () => {
   return (
     <Routes>
-      {/* Public Route */}
-      <Route element={<ClientLayout/>}>
+        <Route element={<PublicLayout/>}>
           <Route index element={<Home/>}/>
-          <Route path ="contact" element={<Contact/>}/>
-          <Route path ="service" element={<Services/>}/>
-          <Route path="library" element={<Library/>}/>
-          <Route path="member/:slug" element={<MemberDetail/>}/>
-          <Route path="job/:slug" element={<JobDetail/>}/>
-      </Route>
-      {/* Public Route */}
+        </Route>
+        <Route path="admin" element={<AdminLayout/>}>
+          <Route index element={<Dashboard/>}/>
+        </Route>
+        <Route path="auth/login" element ={<Login/>}/>
+         <Route path="*" element={<NotFoundPage />} />
     </Routes>
   )
 }
