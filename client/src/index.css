@@ -108,28 +108,45 @@
   }
 }
 
-.ecg-wave {
+.waveform-bars {
   position: absolute;
-  top: 50%;
+  bottom: 0;
   left: 0;
-  width: 200%;
+  width: 100%;
   height: 100px;
-  background: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='600'%20height='100'%3E%3Cpolyline%20points='0,50%2020,50%2025,30%2030,70%2035,50%2060,50%2065,20%2070,80%2075,50%20600,50'%20stroke='%2300ffff'%20stroke-width='2'%20fill='none'/%3E%3C/svg%3E") repeat-x;
-  background-size: contain;
-  animation: ecgMove 2s linear infinite;
-  transform: translateY(-50%);
-  opacity: 0.8;
-  filter: drop-shadow(0 0 6px #00ffff);
-  z-index: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 6px;
+  z-index: 10;
   pointer-events: none;
 }
 
-@keyframes ecgMove {
-  0% {
-    background-position-x: 0;
-  }
-  100% {
-    background-position-x: -600px;
-  }
+.waveform-bars span {
+  display: block;
+  width: 6px;
+  background: #00ffff;
+  animation: bounce 1s infinite ease-in-out;
+  filter: drop-shadow(0 0 6px #00ffff);
+  border-radius: 2px;
 }
 
+.waveform-bars span:nth-child(1) { animation-delay: 0s; }
+.waveform-bars span:nth-child(2) { animation-delay: 0.1s; }
+.waveform-bars span:nth-child(3) { animation-delay: 0.2s; }
+.waveform-bars span:nth-child(4) { animation-delay: 0.3s; }
+.waveform-bars span:nth-child(5) { animation-delay: 0.4s; }
+.waveform-bars span:nth-child(6) { animation-delay: 0.5s; }
+.waveform-bars span:nth-child(7) { animation-delay: 0.6s; }
+.waveform-bars span:nth-child(8) { animation-delay: 0.7s; }
+.waveform-bars span:nth-child(9) { animation-delay: 0.8s; }
+.waveform-bars span:nth-child(10) { animation-delay: 0.9s; }
+
+@keyframes bounce {
+  0%, 100% {
+    height: 20px;
+  }
+  50% {
+    height: 80px;
+  }
+}
