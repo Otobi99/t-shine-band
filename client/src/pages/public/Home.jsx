@@ -7,6 +7,11 @@ const Home = () => {
     <div>
       <HeroSection/>
       <AboutSection/>
+      <AboutSection/>
+      <AboutSection/>
+      <AboutSection/>
+      <AboutSection/>
+      <AboutSection/>
     </div>
   )
 }
