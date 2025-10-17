@@ -47,7 +47,7 @@ const ShowSection = () => {
         <div className="mb-10" data-aos="fade-up">
           <Title
             text="Lịch diễn"
-            highlight="T Shine Band"
+            highlight="T shine"
             align="center"
             size="text-4xl"
             uppercase={true}

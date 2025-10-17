@@ -48,7 +48,7 @@ const Footer = () => {
 
       {/* Dòng bản quyền */}
       <div className="border-t border-white/20 mt-8 pt-4 text-center text-sm text-white/60">
-        © {new Date().getFullYear()} Công ty TNHH Công Nghệ. Mọi quyền được bảo lưu.
+        © {new Date().getFullYear()} Công ty TNHH 24hCoding. Mọi quyền được bảo lưu. liên hệ: 077.6980.269
       </div>
     </footer>
   );

@@ -38,7 +38,7 @@ const members = [
     {
         name: "Công toàn",
         role: "Keyboard",
-        image: "https://scontent.fsgn24-1.fna.fbcdn.net/v/t39.30808-6/506307214_4417770641783617_7692915844385772200_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=10z0BVNfACoQ7kNvwFahZnZ&_nc_oc=Adl2brMUe5QIHNwzoq2oe_ko7FhHbNKgwudHAILElV8rJUmXKn7hcB39i-UjGD450mA&_nc_zt=23&_nc_ht=scontent.fsgn24-1.fna&_nc_gid=plO4INvgKzStI90xdOr3RA&oh=00_AfcGj28BLD9u_KoOVaz_EHMPWIOyaNQ_aGvrIK7Cb8PbqQ&oe=68F7AAAC",
+        image: "https://res.cloudinary.com/dttqah17o/image/upload/v1760685804/congtoan_yuyaoe.jpg",
         facebook: "https://facebook.com/tu",
         instagram: "https://instagram.com/tu",
         detail: "/members/tu",

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Yesteryear&display=swap');
 @import "tailwindcss";
 
 /* Import font từ local */
@@ -7,7 +8,9 @@
   font-weight: normal;
   font-style: normal;
 }
-
+body{
+  font-family: "Roboto", sans-serif;
+}
 /* Gradient màu cho logo */
 :root {
   --logo-gradient: linear-gradient(90deg, #e0f7fa, #80d8ff, #b388ff);
@@ -29,6 +32,10 @@
   -webkit-background-clip: text;
   color: transparent;
   animation: gradientMove 5s ease infinite;
+}
+
+.titleFont{
+  font-family: 'Net Work And', sans-serif;
 }
 
 .title {
@@ -148,5 +155,40 @@
   }
   50% {
     height: 80px;
+  }
+}
+
+.input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: white;
+  border: 2px solid;
+  border-radius: 0.375rem;
+  outline: none;
+
+  /* Gradient border mặc định */
+  border-image: linear-gradient(270deg, #3b82f6, #6366f1, #3f51b5) 1;
+  border-image-slice: 1;
+  transition: border-image-source 1s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Khi focus: gradient động */
+.input:focus {
+  animation: borderFlow 4s linear infinite;
+}
+
+@keyframes borderFlow {
+  0% {
+    border-image-source: linear-gradient(270deg, #3b82f6, #6366f1, #3f51b5);
+  }
+  100% {
+    border-image-source: linear-gradient(630deg, #3b82f6, #6366f1, #3f51b5);
   }
 }

@@ -11,8 +11,8 @@ const Booking = () => {
           {/* Cột trái: tiêu đề và mô tả */}
           <div className="flex-1 flex flex-col gap-6" data-aos="fade-right">
             <Title
-              text="Đặt lịch biểu diễn"
-              highlight="T Shine Band"
+              text="Liện hệ với"
+              highlight="T Shine"
               align="left"
               size="text-4xl"
               uppercase={true}

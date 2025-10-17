@@ -8,6 +8,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Contact from "./pages/public/Contact"
 
 
 
@@ -19,6 +20,7 @@ const App = () => {
     <Routes>
         <Route element={<PublicLayout/>}>
           <Route index element={<Home/>}/>
+          <Route path="contact"element={<Contact/>}/>
         </Route>
         <Route path="admin" element={<AdminLayout/>}>
           <Route index element={<Dashboard/>}/>

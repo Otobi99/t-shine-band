@@ -12,7 +12,7 @@ const BandVideo = () => {
                 <div className="mb-10" data-aos="fade-up">
                     <Title
                         text="Khoảnh khắc"
-                        highlight="T Shine Band"
+                        highlight="Sân khấu"
                         align="center"
                         size="text-4xl"
                         uppercase={true}

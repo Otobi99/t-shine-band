@@ -18,7 +18,7 @@ const Title = ({
       className={`${size} font-bold ${alignment[align]} ${casing}`}
     >
       <span className="text-white">{text} </span>
-      <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+      <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text  titleFont">
         {highlight}
       </span>
     </h2>

@@ -78,7 +78,7 @@ const Header = () => {
 
       {/* Menu mobile dạng slide từ bên phải */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-blue-700 text-white z-50 transform transition-transform duration-500 ${
+        className={`fixed top-0 right-0 h-full w-64 bg-white/10 backdrop-blur-md text-white z-50 transform transition-transform duration-500 ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

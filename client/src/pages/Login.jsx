@@ -16,7 +16,9 @@ function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-500 to-purple-600 animate-fade-in">
+    <div className="relative bg-gradient-to-r from-[#1e3a8a] via-[#2563eb] to-[#3f51b5] text-white min-h-screen overflow-hidden">
+          {/* Lớp phủ toàn bộ section */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-[#1e3a8a]/50 to-black/70 z-0"></div>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md space-y-6"

@@ -19,7 +19,7 @@ const HeroSection = () => {
       {/* Nội dung */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-6 md:px-12">
         <h1
-          className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 uppercase tracking-wide drop-shadow-lg"
+          className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 uppercase tracking-wide drop-shadow-lg titleFont"
           data-aos="fade-down"
         >
           T Shine Band
