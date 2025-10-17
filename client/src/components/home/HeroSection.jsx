@@ -38,7 +38,7 @@ const HeroSection = () => {
           data-aos-delay="400"
         >
           <LiquidButtonLink text="Thư viện" to="/library" bgColor="bg-indigo-600" />
-          <LiquidButtonLink text="Booking" to="/booking" bgColor="bg-teal-600" />
+          <LiquidButtonLink text="Booking" to="/contact" bgColor="bg-teal-600" />
         </div>
       </div>
 

@@ -30,7 +30,7 @@ const Contact = () => {
                     {/* Bên trái: giới thiệu */}
                     <div className="w-full md:w-1/2 space-y-6" data-aos="fade-right">
                         <Title
-                            text="Liên hệ"
+                            text=""
                             highlight="T Shine Band"
                             align="left"
                             size="text-4xl"

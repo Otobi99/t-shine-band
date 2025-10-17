@@ -9,6 +9,8 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Contact from "./pages/public/Contact"
+import About from "./pages/public/About"
+import Library from "./pages/public/Library"
 
 
 
@@ -21,6 +23,9 @@ const App = () => {
         <Route element={<PublicLayout/>}>
           <Route index element={<Home/>}/>
           <Route path="contact"element={<Contact/>}/>
+          <Route path="about"element={<About/>}/>
+          <Route path="library"element={<Library/>}/>
+          
         </Route>
         <Route path="admin" element={<AdminLayout/>}>
           <Route index element={<Dashboard/>}/>

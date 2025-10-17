@@ -25,7 +25,7 @@ const AboutSection = () => {
               uppercase={true}
             />
             <div>
-              <LiquidButtonLink text="Thư viện" to="/library" bgColor="bg-indigo-600" />
+              <LiquidButtonLink text="Về chúng tôi" to="/about" bgColor="bg-indigo-600" />
             </div>
           </div>
 

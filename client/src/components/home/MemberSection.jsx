@@ -82,7 +82,7 @@ const MemberSection = () => {
               data-aos-delay={index * 100}
             >
               {/* Ảnh thành viên */}
-              <div className="relative w-full h-48 sm:h-56 md:h-70 overflow-hidden">
+              <div className="relative w-full h-70 sm:h-56 md:h-70 overflow-hidden">
                 <img
                   src={member.image}
                   alt={member.name}
